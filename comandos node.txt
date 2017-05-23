@@ -1,0 +1,29 @@
+Criando aplicação node
+npm init
+
+cria package.json na pasta
+
+node roda em cima da v8, interpretador js backend
+
+node pode ser:
+executor de script
+webservice
+
+
+
+expressjs
+http://expressjs.com/pt-br/
+
+npm install --save express
+
+
+npm install ---> instala as dependências do projeto
+
+npm install -g nodemon
+nodemon--> refresh automático de servidor
+
+
+procurar saber
+mean.js -->
+
+
