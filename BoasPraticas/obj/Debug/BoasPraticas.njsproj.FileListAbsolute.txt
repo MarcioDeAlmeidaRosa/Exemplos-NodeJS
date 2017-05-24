@@ -1,0 +1,2 @@
+C:\Users\devel02.GRMLT\Documents\Exemplos-NodeJS\BoasPraticas\obj\Debug\BoasPraticas.njsprojResolveAssemblyReference.cache
+C:\Users\devel02.GRMLT\Documents\Exemplos-NodeJS\BoasPraticas\bin\Microsoft.NodejsTools.WebRole.dll

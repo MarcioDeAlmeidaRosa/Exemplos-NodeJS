@@ -1,7 +1,30 @@
+instalações iniciais
+
+npm install --g browser-sync
+
+npm install --g bower
+
+npm install --g gulp
+
+npm install --g forever
+
+npm install --g forever-monitor
+
+npm install -g localtunnel
+
 Criando aplicação node
 npm init
 
-cria package.json na pasta
+npm install --save express
+
+npm install ---> instala as dependências do projeto
+
+nodemon--> refresh automático de servidor
+
+
+
+Criando aplicação node
+npm init --> cria package.json na pasta
 
 node roda em cima da v8, interpretador js backend
 
