@@ -1,57 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function (req, res) {
-    //res.send('Hello World!');
-    res.json({ "nome": "Marcio de Almeida Rosa" });
-});
+////importando o model
+//var ProductsModel = new require('../model/ProductsModel');
 
-router.post('/', function (req, res) {
-    res.json({ "status": "OK" });
-});
+//importando o controller e injetando o model no controlller
+//var ProductsController = new require('../controller/ProductsController')(ProductsModel);
+var ProductsController = require('../controller/ProductsController');
 
-router.get('/products', function (req, res) {
-    res.json([
-        { "name": "Wine", "price": 20.00 },
-        { "name": "Bear" },
-        { "name": "Car" },
-        { "name": "Phone" }
-    ]);
-});
+console.log('Mapeando rota');
 
-//:_id --> indica que é um parâmetro
-router.get('/products/:_id', function (req, res) {
-    console.log('Parâmetros request --> ');
-    console.log(req.params);
-    //--------------
-    var _id = parseInt(req.params._id, 10);
-    console.log(_id);
-    //--------------
-    res.json({ "name": "Wine", "price": 20.00, "_id": _id });
-});
+//funculando metodos htttp com o model
+router.get('/products', ProductsController.findAll.bind(ProductsController));
+router.get('/products/:_id', ProductsController.findOne.bind(ProductsController));
+router.post('/products'       , ProductsController.create.bind(ProductsController));
+router.put('/products/:_id'   , ProductsController.update.bind(ProductsController));
+router.delete('/products/:_id', ProductsController.delete.bind(ProductsController));
 
-router.post('/products', function (req, res) {
-    res.status(201).json({ "mensagem": "Criado com sucesso" });
-});
-
-router.put('/products/:_id', function (req, res) {
-    console.log('Parâmetros request --> ');
-    console.log(req.params);
-    //--------------
-    var _id = parseInt(req.params._id, 10);
-    console.log(_id);
-    //----------------
-    res.json({ "mensagem": "Atualizado com sucesso" });
-});
-
-router.delete('/products/:_id', function (req, res) {
-    console.log('Parâmetros request --> ');
-    console.log(req.params);
-    //--------------
-    var _id = parseInt(req.params._id, 10);
-    console.log(_id);
-    //----------------
-    res.json({ "mensagem": "Removido com sucesso" });
-});
-
+//exportando as rodas definidas neste arquivo
 module.exports = router;

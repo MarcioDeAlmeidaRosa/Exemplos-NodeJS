@@ -1,0 +1,52 @@
+https://cloud.mongodb.com/v2/592633b73b34b96472fcc869#clusters?tooltip=nds.ipwhitelist&step=0
+
+Admin Username & Password 
+username : admin
+senha    : n9mehu7HYWgG06YP
+database : PRIMEIRO-USO-NODE
+
+https://cloud.mongodb.com/v2/592633b73b34b96472fcc869#clusters/connect?clusterId=Cluster0
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Replace <PASSWORD> with the password for the admin user, and <DATABASE> with the name of the database to which you wish to connect. 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+URI Connection String:
+----------------------------------------------------------------
+mongodb://admin:<PASSWORD>@cluster0-shard-00-00-okd4p.mongodb.net:27017,cluster0-shard-00-01-okd4p.mongodb.net:27017,cluster0-shard-00-02-okd4p.mongodb.net:27017/<DATABASE>?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin
+
+ajustado
+mongodb://admin:n9mehu7HYWgG06YP@cluster0-shard-00-00-okd4p.mongodb.net:27017,cluster0-shard-00-01-okd4p.mongodb.net:27017,cluster0-shard-00-02-okd4p.mongodb.net:27017/PRIMEIRO-USO-NODE?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Node.js Driver Example¶
+----------------------------------------------------------------
+var MongoClient = require('mongodb').MongoClient;
+
+var uri = "mongodb://kay:myRealPassword@mycluster0-shard-00-00-wpeiv.mongodb.net:27017,mycluster0-shard-00-01-wpeiv.mongodb.net:27017,mycluster0-shard-00-02-wpeiv.mongodb.net:27017/admin?ssl=true&replicaSet=Mycluster0-shard-0&authSource=admin";
+MongoClient.connect(uri, function(err, db) {
+  db.close();
+});
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+For example, the following connection string specifies test in the database component and 
+includes the authSource=admin option.
+----------------------------------------------------------------
+var uriTestDb = "mongodb://kay:myRealPassword@mycluster0-shard-00-00-wpeiv.mongodb.net:27017,mycluster0-shard-00-01-wpeiv.mongodb.net:27017,mycluster0-shard-00-02-wpeiv.mongodb.net:27017/test?ssl=true&replicaSet=Mycluster0-shard-0&authSource=admin";
+MongoClient.connect(uriTestDb, function(err, db) {
+   db.close();
+});
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Connect via the Mongo Shell View detailed instructions
+
+ mongo "mongodb://cluster0-shard-00-00-okd4p.mongodb.net:27017,cluster0-shard-00-01-okd4p.mongodb.net:27017,cluster0-shard-00-02-okd4p.mongodb.net:27017/test?replicaSet=Cluster0-shard-0" --authenticationDatabase admin --ssl --username admin --password n9mehu7HYWgG06YP
+
+ parei em 01:27:10
