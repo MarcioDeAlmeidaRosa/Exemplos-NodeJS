@@ -21,7 +21,7 @@ ProductsModel.prototype.create = function (data, callback) {
 
 ProductsModel.prototype.update = function (data, _id, callback) {
     console.log('Model-> update -> data -> ' + data);
-    mongo.collection('products').update(data, callback);
+    mongo.collection('products').update({ "_id": mongo.ObjectId(_id) }, data, callback);
 };
 
 ProductsModel.prototype.delete = function (_id, callback) {
