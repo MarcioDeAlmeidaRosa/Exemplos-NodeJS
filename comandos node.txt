@@ -12,6 +12,8 @@ npm install --g forever-monitor
 
 npm install -g localtunnel
 
+npm install -g nodemon
+
 Criando aplicação node
 npm init
 
@@ -42,7 +44,7 @@ npm install --save express
 
 npm install ---> instala as dependências do projeto
 
-npm install -g nodemon
+
 nodemon--> refresh automático de servidor
 
 
