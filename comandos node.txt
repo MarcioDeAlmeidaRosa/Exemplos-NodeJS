@@ -16,6 +16,8 @@ npm install -g nodemon
 
 npm install -g mssql
 
+npm install -g ejs
+
 Criando aplicação node
 npm init
 
@@ -51,6 +53,8 @@ npm install mongojs --save
 npm install body-parser --save
 
 npm install method-override --save
+
+npm install ejs --save
 
 npm install ---> instala as dependências do projeto
 
