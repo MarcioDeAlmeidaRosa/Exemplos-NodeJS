@@ -16,12 +16,24 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Compile Include="controller\ProductsController.js" />
+    <Compile Include="DB\mongo.js" />
+    <Compile Include="DB\sql-serve.js" />
+    <Compile Include="model\ProductsModel.js" />
+    <Compile Include="routers\index.js" />
+    <Compile Include="routers\products.js" />
     <Content Include="Desenvolvimento.txt" />
+    <Content Include="mongoDB\config.txt" />
     <Content Include="package.json" />
     <Compile Include="app.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BoasPraticas" />
+    <Folder Include="mongoDB\" />
+    <Folder Include="DB\" />
+    <Folder Include="model\" />
+    <Folder Include="controller\" />
+    <Folder Include="routers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
