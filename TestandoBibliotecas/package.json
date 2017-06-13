@@ -1,0 +1,14 @@
+{
+  "name": "teste-bibliotecas",
+  "version": "1.0.0",
+  "description": "Projeto teste biblioteca node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marcio de Almeida Rosa",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}

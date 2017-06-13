@@ -58,6 +58,7 @@ npm install ejs --save
 
 npm install ---> instala as dependências do projeto
 
+npm install url --save --> responsável por separar da url a querystring
 
 nodemon--> refresh automático de servidor
 
