@@ -15,6 +15,15 @@ let config = require('./config');
 console.log(halk.blue("Criando instância com express"));
 const app = express();
 
+console.log(halk.blue("carregando body-parser"));
+let bodyParser = require('body-parser');
+
+console.log(halk.blue("configurando json"));
+app.use(bodyParser.json({ limit: '50mb' }));
+
+console.log(halk.blue("configurando urlencoded"));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 console.log(halk.blue("Carregando routes"));
 let routes = require('./routes');
 app.use('/', routes);
