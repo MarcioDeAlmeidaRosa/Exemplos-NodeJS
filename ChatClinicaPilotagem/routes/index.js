@@ -20,6 +20,6 @@ console.log(halk.green("carregando rota get webHookController.getHook"));
 router.get('/fbwebhook', webHookController.getHook);
 
 console.log(halk.green("carregando rota get webHookController.message"));
-router.post('/fbwebhook', webHookController.message);
+router.post('/fbwebhook', webHookController.message.bind(webHookController));
 
 module.exports = router;
