@@ -1,18 +1,13 @@
-let express = require('express');
+console.log("Iniciando server clínica de pilotagem.... carregando chalk");
 let halk = require('chalk');
-
-console.log(halk.blue("Iniciando server clínica de pilotagem...."));
-
-
+console.log(halk.blue("carregando express"));
+let express = require('express');
+console.log(halk.blue("carregando config"));
+let config = require('./config');
 console.log(halk.blue("Criando instância com express"));
 const app = express();
-
-console.log(halk.blue("Configurando a rota inicial do serviço"));
-app.get('/', function(req, res) {
-    res.send("Serviço funcionando");
-});
-
+let routes = require('./routes');
+app.use('/', routes);
 console.log(halk.blue("Configurando a porta de escuta do serviço"));
-app.listen(3000);
-
+app.listen(config.port);
 console.log(halk.blue("Serviço OK, aguardando requisição"));
