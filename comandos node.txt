@@ -63,6 +63,9 @@ npm install url --save --> responsável por separar da url a querystring
 nodemon--> refresh automático de servidor
 
 
+npm install ngrok -g
+ngrok http 3000
+
 procurar saber
 mean.js -->
 

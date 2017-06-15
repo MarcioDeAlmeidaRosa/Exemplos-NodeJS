@@ -56,31 +56,41 @@ class WebHookController {
         if (message) {
             switch (message) {
                 case "oi":
+                case "Oi":
                     //responder outro oi
-                    SendTextMessage(recipientID, "oi");
+                    SendTextMessage(senderID, "Oi, tudo bem com você?");
                     break;
 
                 case "tchau":
                     // responder outro tchau
-                    SendTextMessage(recipientID, "tchau");
+                    SendTextMessage(senderID, "Tchau, volte sempre.");
                     break;
                 default:
                     // responder que não entende o texto
-                    SendTextMessage(recipientID, "não antendi o que você digitou");
+                    SendTextMessage(senderID, "Não antendi sua pergunta, por enquanto só entendo oi e tchau.");
                     break;
-
             }
         }
-
     }
-
-
 }
+
+function SendTextMessage(senderID, messageText) {
+    console.log("senderID = " + senderID);
+    let messageData = {
+        recipient: {
+            id: senderID
+        },
+        message: {
+            text: messageText
+        }
+    };
+    callsendAPI(messageData);
+};
 
 function callsendAPI(messageData) {
     request({
         uri: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: { access_token: 'EAAIVXVLEfjIBAHxuGAihnQVbIYuC8ZBu8nvASAZAZClPTbcN0bvKmJLkG9A9TZCMVnKxg1fR86TgDFWtHtynPhSbWoo42fuCAgnSU7CZAw9e6yrafFZBXgISkFMwhS14Rb3CdDi1qlqwHIQ2lOflT2YEbjj3V4rmlM5npZBMItTegZDZD' },
+        qs: { access_token: 'EAAIVXVLEfjIBAC1L8MxdLC7X1UE4lHFOWJtaE2ETMsR32fesG1Xw14OcZCNObtzGjRd9n5jUVYVQMTXkfimZBLfQYf6dRvHjGO0grJVE1JT1TBh753n8IdSduKmFT9cyWGnh6CBG9oVNqDuOebczdAZCdOg2Vxw7q02RbDRRgZDZD' },
         method: 'POST',
         json: messageData
     }, function(error, response, body) {
@@ -92,22 +102,11 @@ function callsendAPI(messageData) {
         if (response.statusCode == 200) {
             let recipientID = body.recipient_id;
             console.log("recipientID %d", recipientID);
-            let mensageID = body.message_id;
-            console.log("Mensagem enviada com sucesso do %d e mensagem %d", recipientID, messageID);
+            // let mensageID = body.message_id;
+            // console.log("Mensagem enviada com sucesso do %d e mensagem %d", recipientID, messageID);
         }
     });
 };
 
-function SendTextMessage(recipientID, messageText) {
-    let messageData = {
-        recipient: {
-            id: recipientID
-        },
-        message: {
-            text: messageText
-        }
-    };
-    callsendAPI(messageData);
-};
 
 module.exports = WebHookController;
