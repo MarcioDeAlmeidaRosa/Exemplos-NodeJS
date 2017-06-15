@@ -1,17 +1,19 @@
 {
-    "name": "clinicapilotagembot",
-    "version": "1.0.0",
-    "description": "Bot da página de clínica de pilotagem",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Marcio de Almeida Rosa",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.17.2",
-        "chalk": "^1.1.3",
-        "express": "^4.15.3",
-        "request": "^2.81.0"
-    }
+  "name": "clinicapilotagembot",
+  "version": "1.0.0",
+  "description": "Bot da página de clínica de pilotagem",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marcio de Almeida Rosa",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "chalk": "^1.1.3",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.6",
+    "request": "^2.81.0"
+  }
 }

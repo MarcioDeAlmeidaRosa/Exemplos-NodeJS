@@ -1,7 +1,7 @@
 let path = require('path');
-let facebookConfig = require(path.resolve('./config/facebook'));
+let envirement = require(path.resolve('./config/envirement/dev'));
 
 module.exports = {
     port: process.env.PORT_NUMBER || 3000,
-    facebook: facebookConfig
+    env: envirement
 };

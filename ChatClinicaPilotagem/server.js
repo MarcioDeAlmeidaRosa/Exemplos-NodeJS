@@ -8,6 +8,9 @@ let config = require('./config');
 global = {};
 global.config = config;
 
+let db = require('./db');
+db.start();
+
 const app = express();
 
 let bodyParser = require('body-parser');

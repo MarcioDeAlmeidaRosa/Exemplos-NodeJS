@@ -1,11 +1,28 @@
 let halk = require('chalk');
 let request = require('request');
 
+let Bot = {};
+
 class WebHookController {
+    constructor(bot) {
+        Bot = bot;
+    }
 
     add(req, res) {
-        console.log("executando metodo add")
-        res.send("metodo em construção");
+        let bot = new Bot(req.body);
+        bot.save();
+        // bot.save(function(err) {
+        //     if (err) {
+        //         console.log("Erro ao cadastrar bot: " + err);
+        //         // global.logger(err);
+        //         res.status(500).send('Erro ao cadastrar Bot');
+        //     } else {
+        //         console.log("Bot cadastrado com sucesso.");
+        //         //global.events.emit('loadBot', bot);
+        //         res.send('Bot cadastrado com sucesso')
+        //     }
+        // });
+        res.send('Bot cadastrado com sucesso');
     }
 
     getWebHook(req, res) {
@@ -43,8 +60,8 @@ class WebHookController {
         let data = req.body;
         console.log(data);
         request({
-            uri: global.config.facebook.URI_POST_DEFAULT + 'thread_settings',
-            qs: { access_token: global.config.facebook.TOKEN_ACCESS_PAGE },
+            uri: global.config.env.fb.URI_POST_DEFAULT + 'thread_settings',
+            qs: { access_token: global.config.env.fb.TOKEN_ACCESS_PAGE },
             method: 'POST',
             json: {
                 "setting_type": "greeting",
@@ -108,8 +125,8 @@ function SendTextMessage(senderID, messageText) {
 
 function callsendAPI(messageData) {
     request({
-        uri: global.config.facebook.URI_POST_DEFAULT + 'messages',
-        qs: { access_token: global.config.facebook.TOKEN_ACCESS_PAGE },
+        uri: global.config.env.fb.URI_POST_DEFAULT + 'messages',
+        qs: { access_token: global.config.env.fb.TOKEN_ACCESS_PAGE },
         method: 'POST',
         json: messageData
     }, function(error, response, body) {
