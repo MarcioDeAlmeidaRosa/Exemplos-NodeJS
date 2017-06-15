@@ -1,0 +1,9 @@
+curl -X POST -H "Content-type: application/json" -d `{
+ "setting_type": "greeting",
+ "greeting": {
+     "text": "Ol[a, sou assitente do Clínica de Pilotagem. Vamos começar?"
+   }
+ }` "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
+
+
+EAAIVXVLEfjIBAHdh2Ie2qgonVzKJ3CHLZCpwJNqvoQUpvDgHkXkEla2N9CKHNHcPGN2v1CvmYhDQHKmGczHOFR1aZA9RQ17kApQsXmsj4J9vMVCrwkooVbIGTlX6cZCJ71HHSA9GmpuE2zzIET0CN8r2NOitsVojJ88FvIPKQZDZD

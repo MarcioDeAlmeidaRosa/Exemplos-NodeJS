@@ -4,15 +4,18 @@ let express = require('express');
 
 let config = require('./config');
 
+//Variável que vai armazenar configurações globais da app
+global = {};
+global.config = config;
+
 const app = express();
 
 let bodyParser = require('body-parser');
-
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-let routes = require('./routes');
-app.use('/', routes);
+let apiRoutes = require('./bot/api');
+app.use('/api/bot', apiRoutes);
 
 app.listen(config.port);
 
