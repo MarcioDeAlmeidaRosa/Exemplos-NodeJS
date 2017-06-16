@@ -4,11 +4,13 @@ let request = require('request');
 let Bot = {};
 
 class BotsController {
+
     constructor(bot) {
         Bot = bot;
     }
 
     add(req, res) {
+        // TODO - ONDE ESTA O VINCULO DESTE OBJETO COM O SCHEMA E COM A CONEXÃO?
         let bot = new Bot(req.body);
         bot.save();
         res.send('Bot cadastrado com sucesso');
@@ -26,18 +28,34 @@ class BotsController {
         // });
     }
 
-    getWebHook(req, res) {
+    fbWebHook(req, res) {
         //Metodo responsável por efetuar o hook com facebook
-        if ((req.query["hub.mode"] === "subscribe") && (req.query["hub.verify_token"] === "minhasenha123")) {
-            console.log(halk.green("Validação webhook ok"));
-            res.status(200).send(req.query["hub.challenge"]);
+        if (req.params.id) {
+            global.bots.forEach(bot => {
+                console.log(halk.green("Percorrendo " + bot.Name));
+                if (bot.mongoId != req.params.id) {
+                    return;
+                }
+
+                if ((req.query["hub.mode"] === "subscribe") &&
+                    (req.query["hub.verify_token"] === bot.verifyToken)
+                ) {
+                    console.log(halk.green("Validação webhook ok"));
+                    res.status(200).send(req.query["hub.challenge"]);
+                } else {
+                    console.log(halk.red("Validação webhook falhou"));
+                    res.sendStatus(403);
+                }
+
+            });
         } else {
-            console.log(halk.red("Validação webhook falhou"));
-            res.sendStatus(403);
+            console.log('erro id nulo')
+            res.status(403).end('nenhum código informado');
         }
     }
 
     receiverMessage(req, res) {
+
         let data = req.body;
         //o face usar a propriedade object dentro do 
         //body para mandar as mensagens
@@ -58,6 +76,7 @@ class BotsController {
     }
 
     setMessageMain(req, res) {
+        //TODO - IMPLEMENTAR ID PARA ENCONTRAR O BOT
         let data = req.body;
         console.log(data);
         request({

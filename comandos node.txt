@@ -22,6 +22,12 @@ npm install -g mongoose
 
 npm install -g bluebird
 
+npm install -g botly
+
+npm install -g async
+
+npm install -g events
+
 Criando aplicação node
 npm init
 
@@ -63,6 +69,12 @@ npm install ejs --save
 npm install ---> instala as dependências do projeto
 
 npm install url --save --> responsável por separar da url a querystring
+
+npm install botly --save
+
+npm install async --save
+
+npm install events --save
 
 nodemon--> refresh automático de servidor
 

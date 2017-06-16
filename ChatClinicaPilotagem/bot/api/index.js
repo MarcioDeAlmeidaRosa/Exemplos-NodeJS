@@ -8,8 +8,7 @@ const BotsController = require(path.resolve('./bot/api/controllers/BotsControlle
 let botsController = new BotsController(botsModel);
 
 router.post('/', botsController.add);
-router.route('/fbwebhook').get(botsController.getWebHook);
-router.route('/fbwebhook').post(botsController.receiverMessage);
-router.route('/fbmessagemmain').post(botsController.setMessageMain);
+router.route('/fbwebhook/:id').get(botsController.fbWebHook).post(botsController.receiverMessage);
+router.route('/fbmessagemmain/:id').post(botsController.setMessageMain);
 
 module.exports = router;
