@@ -18,6 +18,10 @@ npm install -g mssql
 
 npm install -g ejs
 
+npm install -g mongoose
+
+npm install -g bluebird
+
 Criando aplicação node
 npm init
 

@@ -3,7 +3,7 @@ let request = require('request');
 
 let Bot = {};
 
-class WebHookController {
+class BotsController {
     constructor(bot) {
         Bot = bot;
     }
@@ -11,18 +11,19 @@ class WebHookController {
     add(req, res) {
         let bot = new Bot(req.body);
         bot.save();
+        res.send('Bot cadastrado com sucesso');
         // bot.save(function(err) {
+        //     console.log(halk.green("Executando cb do save."));
         //     if (err) {
-        //         console.log("Erro ao cadastrar bot: " + err);
+        //         console.log(halk.red("Erro ao cadastrar bot: " + err));
         //         // global.logger(err);
         //         res.status(500).send('Erro ao cadastrar Bot');
         //     } else {
-        //         console.log("Bot cadastrado com sucesso.");
+        //         console.log(halk.green("Bot cadastrado com sucesso."));
         //         //global.events.emit('loadBot', bot);
         //         res.send('Bot cadastrado com sucesso')
         //     }
         // });
-        res.send('Bot cadastrado com sucesso');
     }
 
     getWebHook(req, res) {
@@ -144,4 +145,4 @@ function callsendAPI(messageData) {
 };
 
 
-module.exports = WebHookController;
+module.exports = BotsController;

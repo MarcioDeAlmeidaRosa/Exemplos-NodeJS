@@ -4,12 +4,12 @@ let path = require('path');
 
 let botsModel = require(path.resolve('./db/models/bot'));
 
-const WebHookController = require(path.resolve('./bot/api/controllers/WebHookController'));
-let webHookController = new WebHookController(botsModel);
+const BotsController = require(path.resolve('./bot/api/controllers/BotsController'));
+let botsController = new BotsController(botsModel);
 
-router.post('/', webHookController.add);
-router.route('/fbwebhook').get(webHookController.getWebHook);
-router.route('/fbwebhook').post(webHookController.receiverMessage);
-router.route('/fbmessagemmain').post(webHookController.setMessageMain);
+router.post('/', botsController.add);
+router.route('/fbwebhook').get(botsController.getWebHook);
+router.route('/fbwebhook').post(botsController.receiverMessage);
+router.route('/fbmessagemmain').post(botsController.setMessageMain);
 
 module.exports = router;
